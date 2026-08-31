@@ -1,11 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 
 const navLinks = [
   { label: "Home", to: "/" },
@@ -45,8 +42,12 @@ export default function Navbar() {
 
         <div className="hidden md:block">
           <NavLink to="/contact" className={buttonLinkClass}>
-            Resume
+            Contact
           </NavLink>
+        </div>
+
+        <div className="hidden md:block">
+          <ThemeToggle />
         </div>
 
         {/* Mobile trigger */}
@@ -73,7 +74,7 @@ export default function Navbar() {
                   onClick={() => setOpen(false)}
                   className={`${buttonLinkClass} w-fit`}
                 >
-                  Resume
+                  Contact
                 </NavLink>
               </nav>
             </SheetContent>
