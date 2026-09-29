@@ -28,7 +28,7 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Brand */}
         <NavLink to="/" className="text-lg font-semibold tracking-tight">
-          &lt;YourName /&gt;
+          &lt;Rusell Marquillero /&gt;
         </NavLink>
 
         {/* Desktop nav */}

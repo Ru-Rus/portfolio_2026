@@ -80,6 +80,9 @@ export default function Contact() {
         <Download className="h-4 w-4" />
         Download Resume
       </a>
+      <p className="mt-3 text-xs text-muted-foreground">
+        Last updated September 2026
+      </p>
     </div>
   );
 }
