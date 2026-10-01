@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://YOURDOMAIN.com/</loc></url>
+  <url><loc>https://YOURDOMAIN.com/about</loc></url>
+  <url><loc>https://YOURDOMAIN.com/projects</loc></url>
+  <url><loc>https://YOURDOMAIN.com/projects/hcm-system</loc></url>
+  <url><loc>https://YOURDOMAIN.com/projects/sql-query-explainer</loc></url>
+  <url><loc>https://YOURDOMAIN.com/playground</loc></url>
+  <url><loc>https://YOURDOMAIN.com/skills</loc></url>
+  <url><loc>https://YOURDOMAIN.com/contact</loc></url>
+</urlset>

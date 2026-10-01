@@ -50,6 +50,19 @@ export default function ProjectDetail() {
         </div>
       </div>
 
+      {project.metrics && project.metrics.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-xl font-semibold">Key Numbers</h2>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+            {project.metrics.map((metric) => (
+              <li key={metric} className="rounded-lg border p-4 text-sm">
+                {metric}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+
       {project.problem && (
         <section className="mt-12">
           <h2 className="text-xl font-semibold">The Problem</h2>
