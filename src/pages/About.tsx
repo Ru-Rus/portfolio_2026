@@ -1,7 +1,7 @@
 export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-sm font-medium text-primary">About</p>
+      <p className="text-sm font-medium text-foreground">About</p>
       <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
         From building interfaces to building the systems behind them.
       </h1>

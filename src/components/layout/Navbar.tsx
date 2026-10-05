@@ -24,12 +24,12 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   const linkClass = ({ isActive }: { isActive: boolean }) =>
-    `text-sm font-medium transition-colors hover:text-primary ${
-      isActive ? "text-primary" : "text-muted-foreground"
+    `text-sm font-medium transition-colors hover:text-brand ${
+      isActive ? "text-brand" : "text-foreground"
     }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-neutral-800 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Brand */}
         <NavLink to="/" className="text-lg font-semibold tracking-tight">

@@ -29,7 +29,7 @@ export default function ThemeToggle() {
             aria-label={`${option.label} theme`}
             className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
               isActive
-                ? "bg-primary text-primary-foreground"
+                ? "border border-neutral-700 bg-neutral-900 text-brand"
                 : "text-muted-foreground hover:text-foreground"
             }`}
           >

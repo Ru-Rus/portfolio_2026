@@ -40,7 +40,7 @@ const contactLinks = [
 export default function Contact() {
   return (
     <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-sm font-medium text-primary">Contact</p>
+      <p className="text-sm font-medium text-foreground">Contact</p>
       <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
         Let's talk.
       </h1>
@@ -58,9 +58,9 @@ export default function Contact() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              className="group flex items-center gap-4 rounded-lg border p-4 transition-colors hover:border-primary"
+              className="group flex items-center gap-4 rounded-lg border border-neutral-800 bg-black p-4 transition-colors hover:border-neutral-600 hover:bg-neutral-950"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-muted text-muted-foreground transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-brand transition-colors group-hover:bg-neutral-800 group-hover:text-brand">
                 <Icon className="h-5 w-5" />
               </div>
               <div>
@@ -75,7 +75,7 @@ export default function Contact() {
       <a
         href="/pdfs/resume.pdf"
         download
-        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 sm:w-auto"
+        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md border border-neutral-700 bg-black px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
       >
         <Download className="h-4 w-4" />
         Download Resume
