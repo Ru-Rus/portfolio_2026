@@ -32,8 +32,8 @@ export default function Skills() {
         What I actually work with
       </h1>
       <p className="mt-4 max-w-2xl text-muted-foreground">
-        Every rating here is tied to a real project, not a guess — the reasoning
-        under each skill shows where it comes from.
+        Skills are grouped by how I have applied or studied them. Each entry
+        includes context for that experience.
       </p>
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
@@ -42,20 +42,9 @@ export default function Skills() {
             <h2 className="text-lg font-semibold">{cat.category}</h2>
             <div className="mt-6 space-y-5">
               {cat.skills.map((skill) => (
-                <div key={skill.name}>
-                  <div className="flex items-baseline justify-between">
-                    <span className="text-sm font-medium">{skill.name}</span>
-                    <span className="text-xs text-muted-foreground">
-                      {skill.level}%
-                    </span>
-                  </div>
-                  <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-muted">
-                    <div
-                      className="h-full rounded-full bg-primary transition-all duration-500 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-                  <p className="mt-1.5 text-xs text-muted-foreground">
+                <div key={skill.name} className="border-l-2 border-primary/40 pl-3">
+                  <p className="text-sm font-medium">{skill.name}</p>
+                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {skill.basis}
                   </p>
                 </div>
@@ -86,18 +75,27 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* Certifications */}
+      {/* Courses and course certificates */}
       <section className="mt-16">
-        <h2 className="text-2xl font-bold tracking-tight">Certifications</h2>
+        <h2 className="text-2xl font-bold tracking-tight">
+          Courses &amp; certificates
+        </h2>
         <p className="mt-2 text-sm text-muted-foreground">
-          {certifications.length} completed courses across programming, web
-          development, databases, and professional skills.
+          {certifications.length} course completion certificates, grouped by
+          subject. These are course records rather than professional
+          certifications.
         </p>
 
         {/* Filter bar */}
-        <div className="mt-6 flex flex-wrap gap-2">
+        <div
+          role="group"
+          aria-label="Filter courses by category"
+          className="mt-6 flex flex-wrap gap-2 [&>button]:min-h-10"
+        >
           <button
+            type="button"
             onClick={() => setActiveFilter("All")}
+            aria-pressed={activeFilter === "All"}
             className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
               activeFilter === "All"
                 ? "border-primary bg-primary text-primary-foreground"
@@ -114,7 +112,9 @@ export default function Skills() {
             return (
               <button
                 key={category}
+                type="button"
                 onClick={() => setActiveFilter(category)}
+                aria-pressed={activeFilter === category}
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                   activeFilter === category
                     ? "border-primary bg-primary text-primary-foreground"
@@ -150,6 +150,10 @@ export default function Skills() {
                         <img
                           src={`/certs/${cert.slug}.jpg`}
                           alt={cert.name}
+                          loading="lazy"
+                          decoding="async"
+                          width="640"
+                          height="400"
                           className="h-full w-full object-cover transition-transform group-hover:scale-105"
                           onError={(e) => {
                             (e.target as HTMLImageElement).style.display =

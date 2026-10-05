@@ -1,7 +1,14 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu } from "lucide-react";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import ThemeToggle from "@/components/theme/ThemeToggle";
 
 const navLinks = [
@@ -10,6 +17,7 @@ const navLinks = [
   { label: "Projects", to: "/projects" },
   { label: "Playground", to: "/playground" },
   { label: "Skills", to: "/skills" },
+  { label: "Contact", to: "/contact" },
 ];
 
 export default function Navbar() {
@@ -20,9 +28,6 @@ export default function Navbar() {
       isActive ? "text-primary" : "text-muted-foreground"
     }`;
 
-  const buttonLinkClass =
-    "inline-flex h-9 items-center justify-center rounded-md bg-primary px-4 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90";
-
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
@@ -32,7 +37,10 @@ export default function Navbar() {
         </NavLink>
 
         {/* Desktop nav */}
-        <nav className="hidden items-center gap-6 md:flex">
+        <nav
+          aria-label="Main navigation"
+          className="hidden items-center gap-4 lg:flex"
+        >
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} className={linkClass}>
               {link.label}
@@ -40,43 +48,51 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <NavLink to="/contact" className={buttonLinkClass}>
-            Contact
-          </NavLink>
-        </div>
-
-        <div className="hidden md:block">
+        <div className="hidden lg:block">
           <ThemeToggle />
         </div>
 
         {/* Mobile trigger */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
-            <SheetTrigger className="inline-flex h-9 w-9 items-center justify-center rounded-md hover:bg-accent">
+            <SheetTrigger className="inline-flex h-11 w-11 items-center justify-center rounded-md hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
               <Menu className="h-5 w-5" aria-hidden="true" />
               <span className="sr-only">Open menu</span>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <nav className="mt-8 flex flex-col gap-4">
+            <SheetContent
+              side="right"
+              className="data-[side=right]:w-[min(20rem,calc(100vw-1rem))] p-0"
+            >
+              <SheetHeader className="border-b pr-16">
+                <SheetTitle>Navigation</SheetTitle>
+                <SheetDescription>
+                  Choose a page or set your preferred theme.
+                </SheetDescription>
+              </SheetHeader>
+              <nav
+                aria-label="Mobile navigation"
+                className="flex flex-col gap-2 p-4"
+              >
                 {navLinks.map((link) => (
                   <NavLink
                     key={link.to}
                     to={link.to}
                     onClick={() => setOpen(false)}
-                    className={linkClass}
+                    className={({ isActive }) =>
+                      linkClass({ isActive }) +
+                      " inline-flex min-h-11 items-center rounded-md px-3"
+                    }
                   >
                     {link.label}
                   </NavLink>
                 ))}
-                <NavLink
-                  to="/contact"
-                  onClick={() => setOpen(false)}
-                  className={`${buttonLinkClass} w-fit`}
-                >
-                  Contact
-                </NavLink>
               </nav>
+              <div className="mt-auto border-t p-4">
+                <p className="text-sm font-medium">Display theme</p>
+                <div className="mt-3">
+                  <ThemeToggle />
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>

@@ -11,14 +11,21 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className="flex items-center gap-0.5 rounded-full border p-0.5">
+    <div
+      role="group"
+      aria-label="Choose color theme"
+      className="flex items-center gap-0.5 rounded-full border p-0.5"
+    >
       {options.map((option) => {
         const Icon = option.icon;
         const isActive = theme === option.value;
         return (
           <button
             key={option.value}
+            type="button"
             onClick={() => setTheme(option.value)}
+            aria-pressed={isActive}
+            style={{ minWidth: "2.75rem", minHeight: "2.75rem" }}
             aria-label={`${option.label} theme`}
             className={`flex h-7 w-7 items-center justify-center rounded-full transition-colors ${
               isActive

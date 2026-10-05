@@ -46,6 +46,7 @@ function DiagramBox({
 }) {
   return (
     <div
+      aria-hidden={!visible}
       className={`grid transition-all duration-300 ease-out ${
         visible ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
       }`}
@@ -91,6 +92,9 @@ export default function Playground() {
   const toggle = (id: string) => {
     setActive((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+  const enabledComponents = toggles
+    .filter((option) => active[option.id])
+    .map((option) => option.label);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
@@ -167,6 +171,21 @@ export default function Playground() {
           <DiagramBox visible={active.dbReplica} label="Database (replica)" />
         </div>
       </div>
+      <p
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="mt-4 rounded-md border p-4 text-sm"
+      >
+        {enabledComponents.length > 0
+          ? "Enabled components: " + enabledComponents.join(", ") + "."
+          : "Baseline configuration: one app server and a primary database."}
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        The diagram is a simplified request flow. A load balancer spreads
+        requests across app servers, a cache can serve repeat reads, and a
+        database replica can handle read traffic.
+      </p>
     </div>
   );
 }

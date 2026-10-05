@@ -24,9 +24,9 @@ export default function Home() {
           I build backend systems that stay up when it matters.
         </h1>
         <p className="max-w-xl text-lg text-muted-foreground">
-          3-5 years designing APIs, microservices, and data layers that
-          scale — from database schema to load balancer. I care about
-          systems that are reliable, not just systems that demo well.
+          I design APIs, microservices, and data layers with a focus on
+          reliability. My work spans service design, databases, and the
+          infrastructure that keeps systems available.
         </p>
         <div className="flex flex-wrap gap-3 pt-2">
           <NavLink

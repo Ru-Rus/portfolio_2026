@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, NavLink, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -6,6 +7,41 @@ import ArchitectureDiagram from "@/components/diagrams/ArchitectureDiagram";
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
+
+  useEffect(() => {
+    if (!project) return;
+
+    const previousTitle = document.title;
+    const pageTitle = project.title + " | Rusell Marquillero";
+    const pageDescription =
+      project.summary.length > 157
+        ? project.summary.slice(0, 154).trimEnd() + "..."
+        : project.summary;
+    const updates: [string, string][] = [
+      ['meta[name="description"]', pageDescription],
+      ['meta[property="og:title"]', pageTitle],
+      ['meta[property="og:description"]', pageDescription],
+      ['meta[name="twitter:title"]', pageTitle],
+      ['meta[name="twitter:description"]', pageDescription],
+    ];
+    const previousValues = updates.map(([selector]) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      return { element, content: element?.content };
+    });
+
+    document.title = pageTitle;
+    updates.forEach(([selector, content]) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      if (element) element.content = content;
+    });
+
+    return () => {
+      document.title = previousTitle;
+      previousValues.forEach(({ element, content }) => {
+        if (element && content !== undefined) element.content = content;
+      });
+    };
+  }, [project]);
 
   if (!project) {
     return <Navigate to="/projects" replace />;
@@ -52,7 +88,7 @@ export default function ProjectDetail() {
 
       {project.metrics && project.metrics.length > 0 && (
         <section className="mt-12">
-          <h2 className="text-xl font-semibold">Key Numbers</h2>
+          <h2 className="text-xl font-semibold">Implementation Highlights</h2>
           <ul className="mt-3 grid gap-3 sm:grid-cols-2">
             {project.metrics.map((metric) => (
               <li key={metric} className="rounded-lg border p-4 text-sm">

@@ -38,36 +38,58 @@ export default function ArchitectureDiagram({
   services,
   database,
 }: ArchitectureDiagramProps) {
+  const componentNames = [
+    ...(client ? [client.label] : []),
+    ...(loadBalancer ? [loadBalancer.label] : []),
+    ...services.map((service) => service.label),
+    ...(database ? [database.label] : []),
+  ].join(", ");
+
   return (
-    <div className="overflow-x-auto rounded-lg border bg-muted/30 p-6">
-      <div className="flex min-w-fit items-center">
-        {client && (
-          <>
-            <Box node={client} />
-            <Connector />
-          </>
-        )}
+    <figure className="min-w-0">
+      <div
+        role="region"
+        aria-label="Scrollable architecture diagram"
+        aria-describedby="architecture-diagram-summary"
+        tabIndex={0}
+        className="overflow-x-auto rounded-lg border bg-muted/30 p-4 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring sm:p-6"
+      >
+        <div className="flex min-w-fit items-center">
+          {client && (
+            <>
+              <Box node={client} />
+              <Connector />
+            </>
+          )}
 
-        {loadBalancer && (
-          <>
-            <Box node={loadBalancer} />
-            <Connector />
-          </>
-        )}
+          {loadBalancer && (
+            <>
+              <Box node={loadBalancer} />
+              <Connector />
+            </>
+          )}
 
-        <div className="flex flex-col gap-3">
-          {services.map((service) => (
-            <Box key={service.id} node={service} />
-          ))}
+          <div className="flex flex-col gap-3">
+            {services.map((service) => (
+              <Box key={service.id} node={service} />
+            ))}
+          </div>
+
+          {database && (
+            <>
+              <Connector />
+              <Box node={database} />
+            </>
+          )}
         </div>
-
-        {database && (
-          <>
-            <Connector />
-            <Box node={database} />
-          </>
-        )}
       </div>
-    </div>
+      <figcaption
+        id="architecture-diagram-summary"
+        className="mt-3 text-sm leading-relaxed text-muted-foreground"
+      >
+        Architecture components: {componentNames}. Scroll horizontally to
+        inspect each component when needed.
+      </figcaption>
+    </figure>
   );
 }

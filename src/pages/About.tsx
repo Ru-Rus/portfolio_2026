@@ -9,7 +9,7 @@ export default function About() {
       <div className="mt-8 space-y-6 text-base leading-relaxed text-muted-foreground">
         <p>
           I started my career building desktop applications with Windows
-          Forms — two years of shipping tools that people relied on daily,
+          Forms and tools that people relied on daily,
           which taught me a lot about how software actually behaves once
           it leaves your editor. That experience gave me an instinct for
           reliability and edge cases that I still carry into backend work
@@ -17,8 +17,8 @@ export default function About() {
         </p>
 
         <p>
-          For the past year, I've been focused entirely on backend
-          development — designing REST and gRPC APIs, working across SQL
+          My focus is backend development: designing REST and gRPC APIs,
+          working across SQL
           Server and MongoDB, breaking monoliths into microservices, and
           getting hands-on with system design fundamentals like load
           balancing and horizontal scaling, all on Azure. It's the part of
@@ -48,7 +48,7 @@ export default function About() {
         <h2 className="text-sm font-semibold">Currently</h2>
         <p className="mt-2 text-sm text-muted-foreground">
           Backend Developer, focused on APIs, microservices, and system
-          design — three years into software development overall.
+          design.
         </p>
       </div>
     </div>
