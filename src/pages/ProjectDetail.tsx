@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useParams, NavLink, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
@@ -7,6 +8,41 @@ export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
   const project = projects.find((p) => p.slug === slug);
 
+  useEffect(() => {
+    if (!project) return;
+
+    const previousTitle = document.title;
+    const pageTitle = project.title + " | Rusell Marquillero";
+    const pageDescription =
+      project.summary.length > 157
+        ? project.summary.slice(0, 154).trimEnd() + "..."
+        : project.summary;
+    const updates: [string, string][] = [
+      ['meta[name="description"]', pageDescription],
+      ['meta[property="og:title"]', pageTitle],
+      ['meta[property="og:description"]', pageDescription],
+      ['meta[name="twitter:title"]', pageTitle],
+      ['meta[name="twitter:description"]', pageDescription],
+    ];
+    const previousValues = updates.map(([selector]) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      return { element, content: element?.content };
+    });
+
+    document.title = pageTitle;
+    updates.forEach(([selector, content]) => {
+      const element = document.querySelector<HTMLMetaElement>(selector);
+      if (element) element.content = content;
+    });
+
+    return () => {
+      document.title = previousTitle;
+      previousValues.forEach(({ element, content }) => {
+        if (element && content !== undefined) element.content = content;
+      });
+    };
+  }, [project]);
+
   if (!project) {
     return <Navigate to="/projects" replace />;
   }
@@ -15,7 +51,7 @@ export default function ProjectDetail() {
     <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6 sm:py-24">
       <NavLink
         to="/projects"
-        className="inline-flex items-center gap-1 text-sm text-muted-foreground transition-colors hover:text-primary"
+        className="inline-flex items-center gap-1 text-sm text-foreground transition-colors hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" />
         Back to Projects
@@ -35,7 +71,7 @@ export default function ProjectDetail() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-4 rounded-lg border p-5 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 rounded-lg border border-neutral-800 bg-black p-5 sm:grid-cols-2">
         <div>
           <p className="text-xs font-medium uppercase text-muted-foreground">
             Role
@@ -49,6 +85,19 @@ export default function ProjectDetail() {
           <p className="mt-1 text-sm">{project.team}</p>
         </div>
       </div>
+
+      {project.metrics && project.metrics.length > 0 && (
+        <section className="mt-12">
+          <h2 className="text-xl font-semibold">Implementation Highlights</h2>
+          <ul className="mt-3 grid gap-3 sm:grid-cols-2">
+            {project.metrics.map((metric) => (
+              <li key={metric} className="rounded-lg border border-neutral-800 bg-black p-4 text-sm">
+                {metric}
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       {project.problem && (
         <section className="mt-12">
@@ -68,7 +117,7 @@ export default function ProjectDetail() {
                 key={item}
                 className="flex gap-2 text-sm leading-relaxed text-muted-foreground"
               >
-                <span className="text-primary">—</span>
+                <span className="text-foreground">—</span>
                 {item}
               </li>
             ))}
@@ -108,7 +157,7 @@ export default function ProjectDetail() {
           href={link.url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-primary hover:text-primary"
+          className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-neutral-600 hover:bg-neutral-900 hover:text-foreground"
         >
           {link.label}
         </a>
@@ -124,7 +173,7 @@ export default function ProjectDetail() {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full bg-muted px-3 py-1 text-sm text-muted-foreground"
+              className="rounded-full border border-neutral-800 bg-black px-3 py-1 text-sm text-foreground"
             >
               {tech}
             </span>

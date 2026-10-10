@@ -1,32 +1,28 @@
-# React + TypeScript + Vite
+# Rusell Marquillero Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A developer portfolio built with React, TypeScript, Vite, and Tailwind CSS. It includes project case studies, an interactive system design playground, skills, course records, and contact links.
 
-Currently, two official plugins are available:
+## Pages
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Home and About
+- Projects and project details at /projects/:slug
+- System Design Playground
+- Skills and Courses & certificates
+- Contact
 
-## React Compiler
+## Local development
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Requires Node.js 22 and npm.
 
-## Expanding the Oxlint configuration
+1. Install dependencies with npm ci.
+2. Start the development server with npm run dev.
+3. Run checks with npm run lint and npm run build.
+4. Preview the production build with npm run preview.
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Content and assets
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+Project details, skill context, and course records are maintained in src/data. Certificate images and the resume are in public. Verify project details, resume contents, dates, and client disclosure approval before publishing.
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Deployment
+
+This is a browser-rendered single-page application. Configure the production host to serve index.html for application routes so direct visits and refreshes work on nested paths. No production host or canonical domain is configured. Add absolute production URLs to public/sitemap.xml and public/robots.txt after selecting the domain.

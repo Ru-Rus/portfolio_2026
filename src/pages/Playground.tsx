@@ -46,6 +46,7 @@ function DiagramBox({
 }) {
   return (
     <div
+      aria-hidden={!visible}
       className={`grid transition-all duration-300 ease-out ${
         visible ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
       }`}
@@ -53,7 +54,7 @@ function DiagramBox({
       <div className="overflow-hidden">
         <div
           className={`w-full max-w-xs rounded-md border bg-card px-4 py-3 text-center shadow-sm transition-all duration-300 ${
-            highlight ? "border-primary ring-2 ring-primary/30" : ""
+            highlight ? "border-neutral-600 ring-2 ring-neutral-800" : ""
           }`}
         >
           <span className="text-sm font-medium">{label}</span>
@@ -91,10 +92,13 @@ export default function Playground() {
   const toggle = (id: string) => {
     setActive((prev) => ({ ...prev, [id]: !prev[id] }));
   };
+  const enabledComponents = toggles
+    .filter((option) => active[option.id])
+    .map((option) => option.label);
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-24">
-      <p className="text-sm font-medium text-primary">Interactive</p>
+      <p className="text-sm font-medium text-foreground">Interactive</p>
       <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
         System Design Playground
       </h1>
@@ -108,13 +112,13 @@ export default function Playground() {
         {toggles.map((option) => (
           <label
             key={option.id}
-            className="flex cursor-pointer items-start gap-3 rounded-lg border p-4 transition-colors hover:border-primary"
+            className="flex cursor-pointer items-start gap-3 rounded-lg border border-neutral-800 p-4 transition-colors hover:border-neutral-600 hover:bg-neutral-900"
           >
             <input
               type="checkbox"
               checked={active[option.id]}
               onChange={() => toggle(option.id)}
-              className="mt-1 h-4 w-4 accent-primary"
+              className="mt-1 h-4 w-4 accent-neutral-500"
             />
             <div>
               <p className="text-sm font-medium">{option.label}</p>
@@ -135,7 +139,7 @@ export default function Playground() {
       </div>
 
       {/* Diagram — vertical stack, always mounted, animated via CSS */}
-      <div className="mt-12 rounded-lg border bg-muted/30 p-6 sm:p-8">
+      <div className="mt-12 rounded-lg border border-neutral-800 bg-neutral-950 p-6 sm:p-8">
         <div className="flex flex-col items-center gap-3">
           <DiagramBox visible={true} label="Client" />
 
@@ -167,6 +171,21 @@ export default function Playground() {
           <DiagramBox visible={active.dbReplica} label="Database (replica)" />
         </div>
       </div>
+      <p
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="mt-4 rounded-md border p-4 text-sm"
+      >
+        {enabledComponents.length > 0
+          ? "Enabled components: " + enabledComponents.join(", ") + "."
+          : "Baseline configuration: one app server and a primary database."}
+      </p>
+      <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        The diagram is a simplified request flow. A load balancer spreads
+        requests across app servers, a cache can serve repeat reads, and a
+        database replica can handle read traffic.
+      </p>
     </div>
   );
 }

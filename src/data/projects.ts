@@ -35,18 +35,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: "hcm-system",
-    title: "HCM System for a Government Agency",
+    title: "Human Capital Management System",
     summary:
-      "A Human Capital Management system built from scratch for a Philippine government client — REST and gRPC services backed by SQL Server, load-balanced with Nginx.",
+      "A Human Capital Management system with REST and gRPC services backed by SQL Server and an Nginx load balancer.",
     role: "Backend Developer — API, database, gRPC services, Nginx load balancing, code review",
     team: "Small team (2-4 developers)",
     status: "real",
     problem:
-      "The client needed a Human Capital Management system built entirely from scratch — no legacy system to migrate from, and government-level expectations around data integrity, uptime, and compliance from day one.",
+      "The client needed an HCM system built from scratch, with data integrity and availability requirements in mind from day one.",
     architecture: [
       "REST APIs for standard CRUD-heavy client-facing operations",
       "gRPC for internal service-to-service communication where performance mattered",
-      "SQL Server as the primary data store, designed for the compliance and reporting needs of a government client",
+      "SQL Server as the primary data store for compliance and reporting requirements",
       "Nginx as a load balancer in front of the application layer to distribute traffic and support horizontal scaling",
     ],
     decisions: [
@@ -91,6 +91,12 @@ export const projects: Project[] = [
       "A full-stack tool that analyzes SQL queries and returns plain-English explanations, performance issues, and optimization suggestions — powered by Google Gemini, with rate limiting and query validation built in.",
     role: "Solo developer — full-stack (React frontend, FastAPI backend, AI integration, API design)",
     team: "Solo project",
+    metrics: [
+      "10 requests/day per IP rate limit, persisted across server restarts",
+      "4-part structured analysis: explanation, performance issues, ERD description, optimizations",
+      "3 validation rules reject bad input before any AI call (no SQL keyword, multi-statement, over-length)",
+      "Shareable query links with no backend storage",
+    ],
     status: "real",
     problem:
       "SQL queries are easy to write but hard to reason about at a glance — especially for less experienced developers trying to understand why a query is slow or what it's actually doing. I wanted to build a tool that takes a raw SQL query and returns a structured breakdown: what it does, what could go wrong performance-wise, and how to improve it — without just pasting it into a generic chatbot.",

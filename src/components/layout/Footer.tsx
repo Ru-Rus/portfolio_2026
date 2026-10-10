@@ -23,16 +23,16 @@ export default function Footer() {
     <footer className="border-t">
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-4 px-4 py-8 sm:flex-row sm:justify-between sm:px-6">
         <p className="text-sm text-muted-foreground">
-          © {year} Your Name. Built with React, Tailwind, and shadcn/ui.
+          © {year} Rusell Marquillero. Built with React, Tailwind, and shadcn/ui.
         </p>
         <div className="flex items-center gap-4">
-          <a href="https://github.com/yourusername" target="_blank" rel="noreferrer" aria-label="GitHub" className="text-muted-foreground transition-colors hover:text-primary">
+          <a href="https://github.com/Ru-Rus" target="_blank" rel="noreferrer" aria-label="GitHub" className="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
             <GithubIcon className="h-5 w-5" />
           </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="text-muted-foreground transition-colors hover:text-primary">
+          <a href="https://www.linkedin.com/in/rus-marq/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
             <LinkedinIcon className="h-5 w-5" />
           </a>
-          <a href="mailto:you@example.com" aria-label="Email" className="text-muted-foreground transition-colors hover:text-primary">
+          <a href="mailto:jmarquillero.r@gmail.com" aria-label="Email" className="inline-flex h-11 w-11 items-center justify-center rounded-md text-muted-foreground transition-colors hover:bg-accent hover:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring">
             <Mail className="h-5 w-5" />
           </a>
         </div>
