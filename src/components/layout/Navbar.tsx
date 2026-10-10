@@ -52,6 +52,10 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
 
+        <div className="hidden md:block">
+          <ThemeToggle />
+        </div>
+
         {/* Mobile trigger */}
         <div className="lg:hidden">
           <Sheet open={open} onOpenChange={setOpen}>
