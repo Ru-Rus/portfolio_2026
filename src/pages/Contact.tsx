@@ -58,9 +58,9 @@ export default function Contact() {
               href={link.href}
               target={link.href.startsWith("http") ? "_blank" : undefined}
               rel={link.href.startsWith("http") ? "noreferrer" : undefined}
-              className="group flex items-center gap-4 rounded-lg border border-neutral-800 bg-black p-4 transition-colors hover:border-neutral-600 hover:bg-neutral-950"
+              className="group flex items-center gap-4 rounded-lg border border-border bg-card p-4 transition-colors hover:border-brand hover:bg-accent"
             >
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-neutral-900 text-brand transition-colors group-hover:bg-neutral-800 group-hover:text-brand">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-brand transition-colors group-hover:bg-accent group-hover:text-brand">
                 <Icon className="h-5 w-5" />
               </div>
               <div>
@@ -75,7 +75,7 @@ export default function Contact() {
       <a
         href="/pdfs/resume.pdf"
         download
-        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md border border-neutral-700 bg-black px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-neutral-500 hover:bg-neutral-900 sm:w-auto"
+        className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-brand hover:bg-accent sm:w-auto"
       >
         <Download className="h-4 w-4" />
         Download Resume

@@ -29,7 +29,7 @@ export default function Navbar() {
     }`;
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-neutral-800 bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/80 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         {/* Brand */}
         <NavLink to="/" className="text-lg font-semibold tracking-tight">
@@ -52,7 +52,7 @@ export default function Navbar() {
           <ThemeToggle />
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:block lg:hidden">
           <ThemeToggle />
         </div>
 

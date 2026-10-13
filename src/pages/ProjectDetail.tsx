@@ -71,7 +71,7 @@ export default function ProjectDetail() {
         </p>
       </div>
 
-      <div className="mt-8 grid gap-4 rounded-lg border border-neutral-800 bg-black p-5 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 rounded-lg border border-border bg-card p-5 sm:grid-cols-2">
         <div>
           <p className="text-xs font-medium uppercase text-muted-foreground">
             Role
@@ -91,7 +91,7 @@ export default function ProjectDetail() {
           <h2 className="text-xl font-semibold">Implementation Highlights</h2>
           <ul className="mt-3 grid gap-3 sm:grid-cols-2">
             {project.metrics.map((metric) => (
-              <li key={metric} className="rounded-lg border border-neutral-800 bg-black p-4 text-sm">
+              <li key={metric} className="rounded-lg border border-border bg-card p-4 text-sm">
                 {metric}
               </li>
             ))}
@@ -157,7 +157,7 @@ export default function ProjectDetail() {
           href={link.url}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-neutral-600 hover:bg-neutral-900 hover:text-foreground"
+          className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-brand hover:bg-accent hover:text-foreground"
         >
           {link.label}
         </a>
@@ -173,7 +173,7 @@ export default function ProjectDetail() {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-neutral-800 bg-black px-3 py-1 text-sm text-foreground"
+              className="rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground"
             >
               {tech}
             </span>
