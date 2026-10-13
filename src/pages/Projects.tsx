@@ -19,7 +19,7 @@ export default function Projects() {
           <NavLink
             key={project.slug}
             to={`/projects/${project.slug}`}
-            className="group flex flex-col rounded-lg border border-neutral-800 bg-black p-6 transition-all hover:border-neutral-600 hover:bg-neutral-950 hover:shadow-md"
+            className="group flex flex-col rounded-lg border border-border bg-card p-6 transition-all hover:border-brand hover:bg-accent hover:shadow-md"
           >
             <div className="flex items-start justify-between gap-3">
               <h2 className="text-lg font-semibold">{project.title}</h2>
@@ -49,7 +49,7 @@ export default function Projects() {
               {project.tech.slice(0, 4).map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-neutral-800 bg-black px-2.5 py-0.5 text-xs text-foreground"
+                  className="rounded-full border border-border bg-card px-2.5 py-0.5 text-xs text-foreground"
                 >
                   {tech}
                 </span>

@@ -51,16 +51,16 @@ export default function Skills() {
 
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {skillCategories.map((cat) => (
-          <div key={cat.category} className="rounded-lg border border-neutral-800 bg-black p-6">
+          <div key={cat.category} className="rounded-lg border border-border bg-card p-6">
             <h2 className="flex items-center gap-3 text-lg font-semibold">
-              <span className="inline-flex rounded-lg bg-neutral-900 p-2 text-brand">
+              <span className="inline-flex rounded-lg bg-secondary p-2 text-brand">
                 <SkillCategoryIcon category={cat.category} />
               </span>
               {cat.category}
             </h2>
             <div className="mt-6 space-y-5">
               {cat.skills.map((skill) => (
-                <div key={skill.name} className="border-l-2 border-neutral-700 pl-3">
+                <div key={skill.name} className="border-l-2 border-border pl-3">
                   <p className="text-sm font-medium">{skill.name}</p>
                   <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
                     {skill.basis}
@@ -73,7 +73,7 @@ export default function Skills() {
       </div>
 
       {/* Also familiar with */}
-      <div className="mt-8 rounded-lg border border-neutral-800 bg-black p-6">
+      <div className="mt-8 rounded-lg border border-border bg-card p-6">
         <h2 className="text-sm font-semibold">
           Also familiar with
         </h2>
@@ -85,7 +85,7 @@ export default function Skills() {
           {alsoFamiliarWith.map((skill) => (
             <span
               key={skill}
-              className="rounded-full border border-neutral-800 bg-black px-3 py-1 text-xs text-foreground"
+              className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground"
             >
               {skill}
             </span>
@@ -116,8 +116,8 @@ export default function Skills() {
             aria-pressed={activeFilter === "All"}
             className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
               activeFilter === "All"
-                ? "border-neutral-700 bg-black text-brand"
-                : "text-muted-foreground hover:border-neutral-600 hover:bg-neutral-900"
+                ? "border-border bg-card text-brand"
+                : "text-muted-foreground hover:border-brand hover:bg-accent"
             }`}
           >
             All ({certifications.length})
@@ -135,8 +135,8 @@ export default function Skills() {
                 aria-pressed={activeFilter === category}
                 className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
                   activeFilter === category
-                    ? "border-neutral-700 bg-black text-brand"
-                    : "text-muted-foreground hover:border-neutral-600 hover:bg-neutral-900"
+                    ? "border-border bg-card text-brand"
+                    : "text-muted-foreground hover:border-brand hover:bg-accent"
                 }`}
               >
                 {category} ({count})
@@ -162,9 +162,9 @@ export default function Skills() {
                       href={cert.url}
                       target="_blank"
                       rel="noreferrer"
-                      className="group overflow-hidden rounded-lg border border-neutral-800 bg-black transition-colors hover:border-neutral-600"
+                      className="group overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-brand"
                     >
-                      <div className="aspect-[16/10] w-full overflow-hidden bg-neutral-900">
+                      <div className="aspect-[16/10] w-full overflow-hidden bg-secondary">
                         <img
                           src={`/certs/${cert.slug}.jpg`}
                           alt={cert.name}

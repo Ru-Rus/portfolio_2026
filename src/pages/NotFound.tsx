@@ -12,7 +12,7 @@ export default function NotFound() {
       </p>
       <NavLink
         to="/"
-        className="mt-8 inline-flex h-10 items-center justify-center rounded-md border border-neutral-700 bg-black px-5 text-sm font-semibold text-foreground transition-colors hover:border-neutral-500 hover:bg-neutral-900"
+        className="mt-8 inline-flex h-10 items-center justify-center rounded-md border border-border bg-card px-5 text-sm font-semibold text-foreground transition-colors hover:border-brand hover:bg-accent"
       >
         Back to Home
       </NavLink>
