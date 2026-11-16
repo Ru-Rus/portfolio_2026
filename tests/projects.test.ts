@@ -3,8 +3,13 @@ import assert from 'node:assert/strict';
 import { projects } from '../src/data/projects.ts';
 
 describe('Data Integrity: Projects', () => {
-  it('contains at least one project', () => {
-    assert.ok(projects.length > 0, 'Projects array must not be empty');
+  it('contains all 7 cataloged projects with valid categories', () => {
+    assert.equal(projects.length, 7, 'Expected 7 projects in portfolio');
+    const validCategories = ['Backend & APIs', 'Full-Stack', 'Mobile'];
+    for (const project of projects) {
+      assert.ok(project.category, `Project ${project.slug} must have a category`);
+      assert.ok(validCategories.includes(project.category), `Invalid category "${project.category}" in project ${project.slug}`);
+    }
   });
 
   it('each project has a unique valid slug', () => {

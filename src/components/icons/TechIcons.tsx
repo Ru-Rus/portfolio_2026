@@ -249,6 +249,81 @@ export function XUnitIcon(props: IconProps) {
   );
 }
 
+export function KotlinIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M24 24H0V0h24L12 12Z" />
+    </svg>
+  );
+}
+
+export function FlutterIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M14.314 0L2.3 12 6 15.7 21.686 0h-7.372zM14.314 11.23L8.6 16.944 14.314 22.658h7.372L15.986 16.944l5.7-5.714h-7.372z" />
+    </svg>
+  );
+}
+
+export function DartIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M4.1 12.5L0 8.4 8.4 0h8.2l-3.3 3.3L7.4 9.2l-3.3 3.3zm3.3 3.3l4.1 4.1L24 7.4V0l-7.4 7.4-5.8 5.8-3.4 2.6zM0 15.6l8.4 8.4h7.4l-4.1-4.1-8.4-4.3H0z" />
+    </svg>
+  );
+}
+
+export function KeycloakIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <circle cx="10" cy="10" r="7" />
+      <path d="M15 15l7 7m-4-2l2 2m-4-4l2 2" />
+    </svg>
+  );
+}
+
+export function OpenAiIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M22.28 9.37a5.99 5.99 0 0 0-.52-4.94 6.07 6.07 0 0 0-6.48-2.91A6.05 6.05 0 0 0 10.9.46 6.06 6.06 0 0 0 5.14 4.1a6.04 6.04 0 0 0-4.08 2.96 6.08 6.08 0 0 0 .74 7.07 5.99 5.99 0 0 0 .52 4.94 6.07 6.07 0 0 0 6.48 2.91 6.05 6.05 0 0 0 4.38 1.06 6.06 6.06 0 0 0 5.76-3.64 6.04 6.04 0 0 0 4.08-2.96 6.08 6.08 0 0 0-.74-7.07zM12 14.8a2.8 2.8 0 1 1 2.8-2.8 2.8 2.8 0 0 1-2.8 2.8z" />
+    </svg>
+  );
+}
+
+export function SqliteIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 2C6.5 2 2 4.2 2 7v10c0 2.8 4.5 5 10 5s10-2.2 10-5V7c0-2.8-4.5-5-10-5zm0 2.2c4.3 0 7.8 1.5 7.8 2.8s-3.5 2.8-7.8 2.8-7.8-1.5-7.8-2.8 3.5-2.8 7.8-2.8zm0 5c4.3 0 7.8 1.5 7.8 2.8s-3.5 2.8-7.8 2.8-7.8-1.5-7.8-2.8 3.5-2.8 7.8-2.8zm0 5c4.3 0 7.8 1.5 7.8 2.8s-3.5 2.8-7.8 2.8-7.8-1.5-7.8-2.8 3.5-2.8 7.8-2.8z" />
+    </svg>
+  );
+}
+
+export function HealthConnectIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
+    </svg>
+  );
+}
+
+export function CameraXIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z" />
+      <circle cx="12" cy="13" r="3" />
+    </svg>
+  );
+}
+
+export function MlKitIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" {...props}>
+      <path d="M3 7V5a2 2 0 0 1 2-2h2m12 0h2a2 2 0 0 1 2 2v2m0 10v2a2 2 0 0 1-2 2h-2m-12 0H5a2 2 0 0 1-2-2v-2" />
+      <circle cx="12" cy="12" r="3" />
+    </svg>
+  );
+}
+
 // --- Database, Messaging & Cloud Icons ---
 
 export function SqlServerIcon(props: IconProps) {
@@ -343,6 +418,22 @@ export function PostmanIcon(props: IconProps) {
   );
 }
 
+export function AndroidIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M6 18c0 .55.45 1 1 1h1v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h4v3.5c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5V19h1c.55 0 1-.45 1-1V8H6v10zM3.5 8C2.67 8 2 8.67 2 9.5v6c0 .83.67 1.5 1.5 1.5S5 16.33 5 15.5v-6C5 8.67 4.33 8 3.5 8zm17 0c-.83 0-1.5.67-1.5 1.5v6c0 .83.67 1.5 1.5 1.5s1.5-.67 1.5-1.5v-6c0-.83-.67-1.5-1.5-1.5zm-4.97-4.84l1.3-1.3a.5.5 0 0 0-.71-.71l-1.48 1.48C13.85 2.23 12.95 2 12 2c-.96 0-1.86.23-2.66.63L7.85 1.15a.5.5 0 0 0-.71.71l1.31 1.31C6.97 4.26 6 6.01 6 8h12c0-1.99-.97-3.75-2.47-4.84zM9.5 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2zm5 0a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+    </svg>
+  );
+}
+
+export function DockerIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M13.98 11.08h2.12v-1.9h-2.12v1.9zm-2.95-5.43h2.12V3.76h-2.12v1.89zm0 2.71h2.12V6.47h-2.12v1.89zm-2.93 0h2.12V6.47H8.1v1.89zm-2.96 0h2.11V6.47H5.14v1.89zm5.89 2.72h2.12v-1.9h-2.12v1.9zm-2.93 0h2.12v-1.9H8.1v1.9zm-2.96 0h2.11v-1.9H5.14v1.9zm-2.93 0h2.12v-1.9H2.21v1.9zm21.62 1.77a3.67 3.67 0 0 0-1.74-.75c-.17-.04-.53-.06-.85.1-.38.2-.68.5-.9.84-.71-.42-1.63-.5-2.43-.22-.39-1.22-1.34-2.14-2.54-2.48l-.4-.11-.27.31c-.34.39-.56.88-.63 1.4-.41-.05-.82-.02-1.23.07H.8a.79.79 0 0 0-.79.79c.07 3.75 2.19 7.02 5.56 8.58 2.22 1.03 4.7 1.34 7.12.9 3.82-.7 7.02-3.47 8.35-7.19.78-.13 1.48-.56 1.94-1.21.31-.44.42-.98.3-1.5l-.26-.74z" />
+    </svg>
+  );
+}
+
 // Map tech name to matching icon component (case-insensitive lookup helper included)
 // oxlint-disable-next-line react/only-export-components
 export const techIconMap: Record<string, (props: IconProps) => import("react").JSX.Element> = {
@@ -409,7 +500,43 @@ export const techIconMap: Record<string, (props: IconProps) => import("react").J
   Microservices: MicroservicesIcon,
   microservices: MicroservicesIcon,
 
+  // Mobile & Cross-Platform
+  Kotlin: KotlinIcon,
+  kotlin: KotlinIcon,
+  Flutter: FlutterIcon,
+  flutter: FlutterIcon,
+  Dart: DartIcon,
+  dart: DartIcon,
+  Android: AndroidIcon,
+  android: AndroidIcon,
+  "Android SDK": AndroidIcon,
+  Mobile: AndroidIcon,
+  mobile: AndroidIcon,
+  "Health Connect": HealthConnectIcon,
+  "health connect": HealthConnectIcon,
+  "Android Health Connect": HealthConnectIcon,
+  CameraX: CameraXIcon,
+  camerax: CameraXIcon,
+  "ML Kit": MlKitIcon,
+  "ml kit": MlKitIcon,
+  "Google ML Kit": MlKitIcon,
+
+  // AI & Security
+  Keycloak: KeycloakIcon,
+  keycloak: KeycloakIcon,
+  "Keycloak (OIDC)": KeycloakIcon,
+  OpenAI: OpenAiIcon,
+  openai: OpenAiIcon,
+  "OpenAI API": OpenAiIcon,
+
   // Databases & Storage
+  SQLite: SqliteIcon,
+  sqlite: SqliteIcon,
+  "Room Database": SqliteIcon,
+  room: SqliteIcon,
+  SQLAlchemy: SqlServerIcon,
+  sqlalchemy: SqlServerIcon,
+  Alembic: SqlServerIcon,
   MySQL: MySqlIcon,
   mysql: MySqlIcon,
   "SQL Server": SqlServerIcon,
@@ -425,6 +552,8 @@ export const techIconMap: Record<string, (props: IconProps) => import("react").J
   supabase: SupabaseIcon,
 
   // Cloud & DevOps
+  Docker: DockerIcon,
+  docker: DockerIcon,
   "Apache Kafka": KafkaIcon,
   "apache kafka": KafkaIcon,
   Kafka: KafkaIcon,

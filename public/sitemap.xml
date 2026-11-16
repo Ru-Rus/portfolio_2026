@@ -26,6 +26,31 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://ru-rus.github.io/portfolio_2026/projects/pesopilot-ai</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ru-rus.github.io/portfolio_2026/projects/github-autopsy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ru-rus.github.io/portfolio_2026/projects/querytab-ucms</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ru-rus.github.io/portfolio_2026/projects/sukat-health-log</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://ru-rus.github.io/portfolio_2026/projects/nouri-meal-journal</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://ru-rus.github.io/portfolio_2026/playground</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

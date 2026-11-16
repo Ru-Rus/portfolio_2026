@@ -32,3 +32,5 @@ dist-ssr
 #files
 roadmap.md
 recommendation/*
+Projects/*
+.test-runtime/

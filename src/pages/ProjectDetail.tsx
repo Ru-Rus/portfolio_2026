@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useParams, NavLink, Navigate } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Lock } from "lucide-react";
 import { projects } from "@/data/projects";
 import ArchitectureDiagram from "@/components/diagrams/ArchitectureDiagram";
 import { TechIcon } from "@/components/icons/TechIcons";
@@ -59,11 +59,24 @@ export default function ProjectDetail() {
       </NavLink>
 
       <div className="mt-6">
-        {project.status === "placeholder" && (
-          <span className="mb-3 inline-block rounded-full border px-2.5 py-0.5 text-xs text-muted-foreground">
-            Coming soon
-          </span>
-        )}
+        <div className="mb-2 flex flex-wrap items-center gap-2">
+          {project.category && (
+            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+              {project.category}
+            </span>
+          )}
+          {(!project.links || project.links.length === 0) && (
+            <span className="inline-flex items-center gap-1 rounded-full border border-border/80 bg-muted/60 px-2 py-0.5 text-[11px] font-medium text-muted-foreground">
+              <Lock className="h-3 w-3" />
+              Private Codebase
+            </span>
+          )}
+          {project.status === "placeholder" && (
+            <span className="inline-block rounded-full border px-2.5 py-0.5 text-xs text-muted-foreground">
+              Coming soon
+            </span>
+          )}
+        </div>
         <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
           {project.title}
         </h1>
@@ -148,24 +161,29 @@ export default function ProjectDetail() {
         </section>
       )}
 
-{project.links && project.links.length > 0 && (
-  <section className="mt-12">
-    <h2 className="text-xl font-semibold">Links</h2>
-    <div className="mt-3 flex flex-wrap gap-3">
-      {project.links.map((link) => (
-        <a
-          key={link.url}
-          href={link.url}
-          target="_blank"
-          rel="noreferrer"
-          className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-brand hover:bg-accent hover:text-foreground"
-        >
-          {link.label}
-        </a>
-      ))}
-    </div>
-  </section>
-)}
+      <section className="mt-12">
+        <h2 className="text-xl font-semibold">Repository & Code Access</h2>
+        {project.links && project.links.length > 0 ? (
+          <div className="mt-3 flex flex-wrap gap-3">
+            {project.links.map((link) => (
+              <a
+                key={link.url}
+                href={link.url}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-1 rounded-md border px-4 py-2 text-sm font-medium transition-colors hover:border-brand hover:bg-accent hover:text-foreground"
+              >
+                {link.label}
+              </a>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-3 inline-flex items-center gap-2 rounded-lg border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+            <Lock className="h-4 w-4 shrink-0 text-primary" />
+            <span>This project codebase is private. Architecture patterns, design trade-offs, and implementation details are documented above.</span>
+          </div>
+        )}
+      </section>
 
 
       <section className="mt-12">
