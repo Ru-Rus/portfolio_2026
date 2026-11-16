@@ -48,11 +48,7 @@ export default function Navbar() {
           ))}
         </nav>
 
-        <div className="hidden lg:block">
-          <ThemeToggle />
-        </div>
-
-        <div className="hidden md:block lg:hidden">
+        <div className="hidden md:block">
           <ThemeToggle />
         </div>
 
