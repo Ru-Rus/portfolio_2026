@@ -16,6 +16,12 @@ export interface ProjectDecision {
   detail: string;
 }
 
+export interface ProjectScreenshot {
+  url: string;
+  caption: string;
+  isMobile?: boolean;
+}
+
 export interface Project {
   slug: string;
   title: string;
@@ -31,6 +37,7 @@ export interface Project {
   tech: string[];
   links?: { label: string; url: string }[];
   diagram?: ProjectDiagram;
+  screenshots?: ProjectScreenshot[];
 }
 
 export const projects: Project[] = [
@@ -269,6 +276,18 @@ export const projects: Project[] = [
       ],
       database: { id: "postgres", label: "PostgreSQL", sublabel: "Quota & Snapshots" },
     },
+    screenshots: [
+      {
+        url: "projects/github-autopsy/report-desktop.png",
+        caption: "Comprehensive repository forensics dashboard with health metrics, AST module imports, and heuristic grades",
+        isMobile: false,
+      },
+      {
+        url: "projects/github-autopsy/report-mobile.png",
+        caption: "Responsive mobile report layout with scrollable dependency graphs and findings",
+        isMobile: true,
+      },
+    ],
   },
   {
     slug: "querytab-ucms",
@@ -386,6 +405,18 @@ export const projects: Project[] = [
       ],
       database: { id: "sqlite", label: "Local SQLite DB", sublabel: "sqflite On-Device Store" },
     },
+    screenshots: [
+      {
+        url: "projects/sukat-health-log/heart-rate-detail.png",
+        caption: "Heart rate sensor samples and hourly biometric distribution chart",
+        isMobile: true,
+      },
+      {
+        url: "projects/sukat-health-log/sleep-detail.png",
+        caption: "Sleep stages breakdown and local time-series trends from Health Connect",
+        isMobile: true,
+      },
+    ],
   },
   {
     slug: "nouri-meal-journal",
@@ -446,5 +477,27 @@ export const projects: Project[] = [
       ],
       database: { id: "room", label: "Room SQLite DB", sublabel: "Local Macro & Item Store" },
     },
+    screenshots: [
+      {
+        url: "projects/nouri-meal-journal/today-dashboard.png",
+        caption: "Daily macro balance dashboard with caloric goal tracking and meal logs",
+        isMobile: true,
+      },
+      {
+        url: "projects/nouri-meal-journal/dark-mode.png",
+        caption: "OLED dark mode interface with real-time remaining calorie computation",
+        isMobile: true,
+      },
+      {
+        url: "projects/nouri-meal-journal/camera-scanner.png",
+        caption: "CameraX viewfinder with on-device Google ML Kit barcode targeting",
+        isMobile: true,
+      },
+      {
+        url: "projects/nouri-meal-journal/macro-chart.png",
+        caption: "Interactive macronutrient distribution breakdown and trends",
+        isMobile: true,
+      },
+    ],
   },
 ];

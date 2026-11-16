@@ -1,5 +1,7 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import { projects } from '../src/data/projects.ts';
 
 describe('Data Integrity: Projects', () => {
@@ -51,6 +53,22 @@ describe('Data Integrity: Projects', () => {
         assert.ok(project.diagram.services.length > 0, `Project ${project.slug} diagram must have at least one service`);
         for (const service of project.diagram.services) {
           assert.ok(service.id && service.label, `Service node in project ${project.slug} must have id and label`);
+        }
+      }
+    }
+  });
+
+  it('each project screenshot points to an existing file in public/', () => {
+    const publicDir = path.resolve(import.meta.dirname, '../public');
+    for (const project of projects) {
+      if (project.screenshots) {
+        assert.ok(project.screenshots.length > 0, `Project ${project.slug} has empty screenshots array`);
+        for (const screenshot of project.screenshots) {
+          assert.ok(screenshot.caption && screenshot.caption.length > 0, `Screenshot in ${project.slug} must have a caption`);
+          const filePath = path.join(publicDir, screenshot.url.replace(/^\//, ''));
+          assert.ok(fs.existsSync(filePath), `Screenshot file ${filePath} does not exist for project ${project.slug}`);
+          const stats = fs.statSync(filePath);
+          assert.ok(stats.size > 1000, `Screenshot file ${filePath} is too small (< 1KB)`);
         }
       }
     }
