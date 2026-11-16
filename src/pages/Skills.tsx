@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { CodeXml, Database, ExternalLink, Server, Wrench, X, Eye } from "lucide-react";
 import { skillCategories, alsoFamiliarWith } from "@/data/skills";
 import { certifications, type Certification } from "@/data/certifications";
+import { TechIcon } from "@/components/icons/TechIcons";
 
 const skillCategoryIcons = {
   Frontend: CodeXml,
@@ -61,22 +62,31 @@ export default function Skills() {
         includes context for that experience.
       </p>
 
+      {/* Categorized Skills Breakdown with Icons */}
       <div className="mt-12 grid gap-6 sm:grid-cols-2">
         {skillCategories.map((cat) => (
-          <div key={cat.category} className="rounded-lg border border-border bg-card p-6">
+          <div key={cat.category} className="rounded-lg border border-border bg-card p-6 shadow-xs">
             <h2 className="flex items-center gap-3 text-lg font-semibold">
-              <span className="inline-flex rounded-lg bg-secondary p-2 text-brand">
+              <span className="inline-flex rounded-lg bg-secondary p-2 text-primary">
                 <SkillCategoryIcon category={cat.category} />
               </span>
               {cat.category}
             </h2>
-            <div className="mt-6 space-y-5">
+            <div className="mt-6 space-y-3.5">
               {cat.skills.map((skill) => (
-                <div key={skill.name} className="border-l-2 border-border pl-3">
-                  <p className="text-sm font-medium">{skill.name}</p>
-                  <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground">
-                    {skill.basis}
-                  </p>
+                <div
+                  key={skill.name}
+                  className="group flex items-start gap-3.5 rounded-lg border border-border/50 bg-secondary/30 p-3 transition-colors hover:border-border hover:bg-secondary/60"
+                >
+                  <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-border bg-card text-primary shadow-xs transition-transform group-hover:scale-105">
+                    <TechIcon name={skill.name} className="h-5 w-5" />
+                  </div>
+                  <div className="min-w-0 flex-1">
+                    <p className="text-sm font-semibold text-foreground">{skill.name}</p>
+                    <p className="mt-0.5 text-xs leading-relaxed text-muted-foreground">
+                      {skill.basis}
+                    </p>
+                  </div>
                 </div>
               ))}
             </div>
@@ -85,20 +95,21 @@ export default function Skills() {
       </div>
 
       {/* Also familiar with */}
-      <div className="mt-8 rounded-lg border border-border bg-card p-6">
-        <h2 className="text-sm font-semibold">
+      <div className="mt-8 rounded-lg border border-border bg-card p-6 shadow-xs">
+        <h2 className="text-sm font-semibold text-foreground">
           Also familiar with
         </h2>
         <p className="mt-1 text-xs text-muted-foreground">
           Learned through dedicated coursework — not yet applied in a production
           project.
         </p>
-        <div className="mt-4 flex flex-wrap gap-2">
+        <div className="mt-4 flex flex-wrap gap-2.5">
           {alsoFamiliarWith.map((skill) => (
             <span
               key={skill}
-              className="rounded-full border border-border bg-card px-3 py-1 text-xs text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-secondary/40 px-3 py-1.5 text-xs font-medium text-foreground shadow-xs transition-colors hover:border-primary/50"
             >
+              <TechIcon name={skill} className="h-3.5 w-3.5 text-primary" />
               {skill}
             </span>
           ))}

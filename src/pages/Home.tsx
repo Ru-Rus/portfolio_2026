@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { ArrowRight, FolderGit2, Boxes } from "lucide-react";
+import { TechIcon } from "@/components/icons/TechIcons";
 
 const techStack = [
   "REST APIs",
@@ -91,8 +92,9 @@ export default function Home() {
           {techStack.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-border bg-card px-4 py-1.5 text-sm text-foreground"
+              className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-sm font-medium text-foreground shadow-sm transition-colors hover:border-primary/50"
             >
+              <TechIcon name={tech} className="h-4 w-4 text-primary" />
               {tech}
             </span>
           ))}

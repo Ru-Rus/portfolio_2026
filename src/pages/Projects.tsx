@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { ArrowRight, BriefcaseBusiness, UsersRound } from "lucide-react";
 import { projects } from "@/data/projects";
+import { TechIcon } from "@/components/icons/TechIcons";
 
 export default function Projects() {
   return (
@@ -46,11 +47,12 @@ export default function Projects() {
             </div>
 
             <div className="mt-4 flex flex-wrap gap-2">
-              {project.tech.slice(0, 4).map((tech) => (
+              {project.tech.map((tech) => (
                 <span
                   key={tech}
-                  className="rounded-full border border-border bg-card px-2.5 py-0.5 text-xs text-foreground"
+                  className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-2.5 py-1 text-xs text-foreground shadow-sm transition-colors hover:border-primary/50"
                 >
+                  <TechIcon name={tech} className="h-3.5 w-3.5 text-primary" />
                   {tech}
                 </span>
               ))}

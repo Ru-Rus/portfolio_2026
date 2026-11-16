@@ -3,6 +3,7 @@ import { useParams, NavLink, Navigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { projects } from "@/data/projects";
 import ArchitectureDiagram from "@/components/diagrams/ArchitectureDiagram";
+import { TechIcon } from "@/components/icons/TechIcons";
 
 export default function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>();
@@ -173,8 +174,9 @@ export default function ProjectDetail() {
           {project.tech.map((tech) => (
             <span
               key={tech}
-              className="rounded-full border border-border bg-card px-3 py-1 text-sm text-foreground"
+              className="inline-flex items-center gap-1.5 rounded-full border border-border bg-card px-3.5 py-1 text-sm font-medium text-foreground shadow-sm"
             >
+              <TechIcon name={tech} className="h-4 w-4 text-primary" />
               {tech}
             </span>
           ))}
