@@ -29,4 +29,8 @@ dist-ssr
 .env.*
 !.env.example
 
+#files
 roadmap.md
+recommendation/*
+Projects/*
+.test-runtime/

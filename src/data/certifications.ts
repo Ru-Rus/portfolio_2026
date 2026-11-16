@@ -201,6 +201,14 @@ export const certifications: Certification[] = [
     category: "Database",
   },
   {
+    slug: "apache-kafka-for-beginners",
+    name: "Apache Kafka for Beginners - Learn Kafka by Hands-On",
+    issuer: "Udemy",
+    date: "2025-12-16",
+    url: "https://ude.my/UC-12319990-8256-41af-8c1f-72cae6c1dc60",
+    category: "Data Engineering",
+  },
+  {
     slug: "apache-kafka-stream-processing",
     name: "Apache Kafka - Real-time Stream Processing (Master Class)",
     issuer: "Udemy",
