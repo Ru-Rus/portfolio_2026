@@ -290,6 +290,14 @@ export function OpenAiIcon(props: IconProps) {
   );
 }
 
+export function GeminiIcon(props: IconProps) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+      <path d="M12 24c0-6.627-5.373-12-12-12 6.627 0 12-5.373 12-12 0 6.627 5.373 12 12 12-6.627 0-12 5.373-12 12z" />
+    </svg>
+  );
+}
+
 export function SqliteIcon(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
@@ -469,6 +477,7 @@ export const techIconMap: Record<string, (props: IconProps) => import("react").J
   // Backend & Languages
   "C#": CSharpIcon,
   csharp: CSharpIcon,
+  "C# / .NET": CSharpIcon,
   "Windows Forms": WindowsIcon,
   "windows forms": WindowsIcon,
   "ASP.NET": DotNetIcon,
@@ -528,10 +537,15 @@ export const techIconMap: Record<string, (props: IconProps) => import("react").J
   OpenAI: OpenAiIcon,
   openai: OpenAiIcon,
   "OpenAI API": OpenAiIcon,
+  Gemini: GeminiIcon,
+  gemini: GeminiIcon,
+  "Google Gemini": GeminiIcon,
+  "Google Gemini API": GeminiIcon,
 
   // Databases & Storage
   SQLite: SqliteIcon,
   sqlite: SqliteIcon,
+  "SQLite / Room": SqliteIcon,
   "Room Database": SqliteIcon,
   room: SqliteIcon,
   SQLAlchemy: SqlServerIcon,

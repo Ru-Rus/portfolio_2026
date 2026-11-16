@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
-import { CodeXml, Database, ExternalLink, Server, Wrench, X, Eye } from "lucide-react";
+import { CodeXml, Database, ExternalLink, Server, Wrench, X, Eye, Smartphone } from "lucide-react";
 import { skillCategories, alsoFamiliarWith } from "@/data/skills";
 import { certifications, type Certification } from "@/data/certifications";
 import { TechIcon } from "@/components/icons/TechIcons";
 
 const skillCategoryIcons = {
   Frontend: CodeXml,
+  "Backend & APIs": Server,
   Backend: Server,
+  "Mobile & Native": Smartphone,
+  Mobile: Smartphone,
+  "Databases & Storage": Database,
   Database,
   "Infrastructure & Tools": Wrench,
 };
