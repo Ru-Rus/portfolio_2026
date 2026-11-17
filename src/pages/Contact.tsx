@@ -73,7 +73,7 @@ export default function Contact() {
       </div>
 
       <a
-        href="/pdfs/resume.pdf"
+        href={`${import.meta.env.BASE_URL}pdfs/resume.pdf`}
         download
         className="mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md border border-border bg-card px-5 py-3 text-sm font-semibold text-foreground transition-colors hover:border-brand hover:bg-accent sm:w-auto"
       >
