@@ -204,7 +204,7 @@ export default function Skills() {
                     >
                       <div className="relative aspect-[16/10] w-full overflow-hidden bg-secondary">
                         <img
-                          src={`/certs/${cert.slug}.jpg`}
+                          src={`${import.meta.env.BASE_URL}certs/${cert.slug}.jpg`}
                           alt={cert.name}
                           loading="lazy"
                           decoding="async"
@@ -290,7 +290,7 @@ export default function Skills() {
             {/* Certificate Preview Image */}
             <div className="overflow-auto bg-black/5 p-4 text-center">
               <img
-                src={`/certs/${selectedCert.slug}.jpg`}
+                src={`${import.meta.env.BASE_URL}certs/${selectedCert.slug}.jpg`}
                 alt={selectedCert.name}
                 className="mx-auto max-h-[60vh] w-auto rounded-lg shadow-md object-contain"
               />

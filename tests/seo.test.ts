@@ -18,7 +18,7 @@ describe('SEO & Metadata Integrity', () => {
 
   it('index.html contains open graph and twitter card preview tags', () => {
     assert.ok(indexHtml.includes('property="og:image"'), 'Missing og:image tag');
-    assert.ok(indexHtml.includes('content="/og-image.png"'), 'og:image must reference /og-image.png');
+    assert.ok(/property="og:image" content="[^"]*\/og-image\.png"/.test(indexHtml), 'og:image must reference og-image.png');
     assert.ok(indexHtml.includes('name="twitter:card" content="summary_large_image"'), 'Twitter card must be summary_large_image');
     assert.ok(indexHtml.includes('name="twitter:image"'), 'Missing twitter:image tag');
   });
